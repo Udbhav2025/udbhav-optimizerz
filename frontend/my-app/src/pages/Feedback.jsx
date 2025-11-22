@@ -1,3 +1,4 @@
+import { MessageCircle } from "lucide-react";
 
 function Feedback() {
   return (
@@ -9,7 +10,9 @@ function Feedback() {
             Share your thoughts after experiencing the Cardio360 workflow.
           </p>
           <div className="feedback-placeholder">
-            <div className="placeholder-icon">💬</div>
+            <div className="placeholder-icon">
+              <MessageCircle size={64} />
+            </div>
             <p>Feedback form coming soon</p>
           </div>
         </div>

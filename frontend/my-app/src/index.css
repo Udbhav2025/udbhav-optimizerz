@@ -229,7 +229,10 @@ body {
 }
 
 .icon-placeholder {
-  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000000;
 }
 
 .feature-title {
@@ -361,7 +364,10 @@ body {
 }
 
 .metric-icon {
-  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000000;
 }
 
 .metric-change {
@@ -639,8 +645,8 @@ body {
   margin: 0 auto 1.5rem;
 }
 
-.icon-emoji {
-  font-size: 2rem;
+.icon-svg {
+  color: #000000;
 }
 
 .value-title {

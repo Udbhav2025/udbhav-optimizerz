@@ -1,23 +1,24 @@
+import { Goal, UsersRound, Cpu, Heart } from "lucide-react";
 
 const About = () => {
   const values = [
     {
-      icon: "🎯",
+      icon: Goal,
       title: "Our Mission",
       description: "To provide accessible, accurate heart disease prediction tools that empower individuals to take control of their cardiovascular health."
     },
     {
-      icon: "👥",
+      icon: UsersRound,
       title: "Our Team",
       description: "A dedicated group of healthcare professionals, data scientists, and engineers working together to improve heart health outcomes."
     },
     {
-      icon: "🏆",
+      icon: Cpu,
       title: "Our Technology",
       description: "State-of-the-art machine learning algorithms trained on extensive medical datasets to deliver reliable predictions."
     },
     {
-      icon: "❤️",
+      icon: Heart,
       title: "Our Commitment",
       description: "Committed to patient privacy, data security, and providing the highest quality health information and tools."
     }
@@ -68,7 +69,7 @@ const About = () => {
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="value-icon">
-                <span className="icon-emoji">{value.icon}</span>
+                <value.icon className="icon-svg" size={32} />
               </div>
               <h3 className="value-title">{value.title}</h3>
               <p className="value-description">{value.description}</p>

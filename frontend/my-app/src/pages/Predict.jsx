@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Stethoscope } from "lucide-react";
 
 function Predict() {
   const [form, setForm] = useState({
@@ -52,7 +53,10 @@ function Predict() {
     <div className="predict-page">
       <div className="container">
         <div className="predict-content">
-          <h1 className="predict-title">Heart Attack Risk Factors</h1>
+          <h1 className="predict-title" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}>
+            <Stethoscope size={32} />
+            Heart Attack Risk Factors
+          </h1>
           <form className="predict-form" onSubmit={handleSubmit}>
             <div className="form-group">
               <label>

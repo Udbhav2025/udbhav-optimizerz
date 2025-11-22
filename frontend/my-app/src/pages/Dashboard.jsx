@@ -1,3 +1,4 @@
+import { BarChart, TrendingUp, AlertCircle } from "lucide-react";
 
 const Dashboard = () => {
   const metrics = [
@@ -56,7 +57,9 @@ const Dashboard = () => {
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="metric-header">
-                <div className="metric-icon">📊</div>
+                <div className="metric-icon">
+                  <BarChart size={24} />
+                </div>
                 <span className={`metric-change ${metric.change.startsWith('+') ? 'positive' : metric.change.startsWith('-') ? 'negative' : 'neutral'}`}>
                   {metric.change}
                 </span>
@@ -76,14 +79,18 @@ const Dashboard = () => {
         {/* Chart Placeholder */}
         <div className="dashboard-grid">
           <div className="chart-card">
-            <h2 className="card-title">📈 Heart Rate Trend</h2>
+            <h2 className="card-title">
+              <TrendingUp size={20} /> Heart Rate Trend
+            </h2>
             <div className="chart-placeholder">
               <p>Chart visualization coming soon</p>
             </div>
           </div>
 
           <div className="alerts-card">
-            <h2 className="card-title">⚠️ Health Alerts</h2>
+            <h2 className="card-title">
+              <AlertCircle size={20} /> Health Alerts
+            </h2>
             <div className="alerts-list">
               <div className="alert-item success">
                 <p className="alert-text">All metrics normal</p>
