@@ -1,20 +1,133 @@
 import { Link } from "react-router-dom";
 
 const Home = () => {
-  // Custom styles for heading and topics
-  const headingStyle = {
-    fontSize: "3.3rem", // Increased size for main heading
-    fontWeight: "bold",
-    marginBottom: "1.2rem"
+  // Styles for the full-page hero section
+  const heroSectionStyle = {
+    width: "100vw",
+    height: "100vh",
+    minHeight: "600px",
+    position: "relative",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    background: "#fff",
+    overflow: "hidden",
+    boxSizing: "border-box",
+    padding: 0,
+    margin: 0,
   };
 
+  const heroInnerStyle = {
+    maxWidth: "1400px",
+    width: "100%",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: "3.5rem",
+    padding: "0 2rem",
+    boxSizing: "border-box",
+    flexWrap: "wrap",
+  };
+
+  const leftColStyle = {
+    flex: "1 1 420px",
+    minWidth: "340px",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "flex-start",
+    justifyContent: "center",
+    maxWidth: "540px",
+  };
+
+  const heroTitleStyle = {
+    fontSize: "2.5rem",
+    fontWeight: "bold",
+    marginBottom: "1.5rem",
+    lineHeight: 1.18,
+    color: "#161616",
+    textAlign: "left",
+  };
+
+  const textGradient = {
+    background: "linear-gradient(90deg,#ff445a 0%,#f6a700 85%)",
+    WebkitBackgroundClip: "text",
+    WebkitTextFillColor: "transparent",
+    backgroundClip: "text",
+    fontWeight: "bold"
+  };
+
+  const heroDescStyle = {
+    fontSize: "1.05rem",
+    maxWidth: "385px",
+    marginBottom: "2.2rem",
+    color: "#494949",
+    lineHeight: 1.6,
+    textAlign: "left",
+  };
+
+  const heroBtnGroupStyle = {
+    display: "flex",
+    flexDirection: "row",
+    gap: "18px",
+    marginTop: "0.3rem",
+  };
+
+  const btnPrimary = {
+    padding: "0.78em 2.1em",
+    fontSize: "1.06rem",
+    background: "#161616",
+    color: "#fff",
+    border: "none",
+    borderRadius: "7px",
+    fontWeight: 600,
+    letterSpacing: ".03em",
+    cursor: "pointer",
+    textDecoration: "none",
+    boxShadow: "0 2px 8px rgba(48, 24, 38, 0.04)",
+    transition: "background 0.21s",
+  };
+
+  const btnOutline = {
+    padding: "0.78em 2.1em",
+    fontSize: "1.06rem",
+    background: "transparent",
+    color: "#161616",
+    border: "1.7px solid #161616",
+    borderRadius: "7px",
+    fontWeight: 600,
+    letterSpacing: ".03em",
+    cursor: "pointer",
+    textDecoration: "none",
+    boxShadow: "none",
+    transition: "background 0.21s, color 0.21s",
+  };
+
+  const rightColStyle = {
+    flex: "1 1 340px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    minWidth: "340px",
+    minHeight: "390px",
+    width: 'min(490px, 85vw)',
+    height: 'min(440px, 70vw)',
+  };
+
+  const imageStyle = {
+    width: "100%",
+    height: "100%",
+    objectFit: "contain",
+    borderRadius: "25px",
+    boxShadow: "0 6px 28px rgba(80,32,48,0.10)"
+  };
+
+  // Reuse previous styles for the rest of the landing
   const topicStyle = {
-    fontSize: "2.1rem", // Slight increase for section topics
+    fontSize: "2.1rem",
     fontWeight: 600,
     margin: "2.2rem 0 1.2rem 0",
     textAlign: "center"
   };
-
   const textStyle = {
     fontSize: "1.18rem",
     marginBottom: "1.1rem",
@@ -23,29 +136,39 @@ const Home = () => {
 
   return (
     <div className="home-page">
-      {/* Hero Section */}
-      <section className="hero-section">
-        <div className="container">
-          <div className="hero-content">
-            <h1 className="hero-title" style={headingStyle}>
-              Your Heart Health,
-              <span className="text-gradient"> Our Priority</span>
+      {/* Full-Page Hero Section */}
+      <section className="hero-section" style={heroSectionStyle}>
+        <div style={heroInnerStyle}>
+          <div className="hero-content" style={leftColStyle}>
+            <h1 className="hero-title" style={heroTitleStyle}>
+              Your Heart Health,<br />
+              <span className="text-gradient" style={textGradient}>Our Priority</span>
             </h1>
-            <p className="hero-description" style={{ fontSize: "1.3rem" }}>
-              Advanced heart disease prediction and monitoring system powered by AI. 
+            <p className="hero-description" style={heroDescStyle}>
+              Advanced heart disease prediction and monitoring system powered by AI.
               Take control of your cardiovascular health with data-driven insights.
             </p>
-            <div className="hero-buttons">
-              <Link to="/predict" className="btn btn-primary">
+            <div className="hero-buttons" style={heroBtnGroupStyle}>
+              <Link to="/predict" style={btnPrimary}>
                 Start Prediction
               </Link>
-              <Link to="/dashboard" className="btn btn-outline">
+              <Link to="/dashboard" style={btnOutline}>
                 View Dashboard
               </Link>
             </div>
           </div>
+          <div className="hero-image" style={rightColStyle}>
+            <img
+              src="/WATCH 2.webp"
+              alt="Heart Health Watch"
+              style={imageStyle}
+              loading="eager"
+              draggable={false}
+            />
+          </div>
         </div>
       </section>
+      {/* The rest of the page will show as the user scrolls */}
       <section className="landing-brief">
         <div className="container">
           <div style={topicStyle}>Why Use Our ML Heart Risk System?</div>
@@ -97,9 +220,6 @@ const Home = () => {
           </div>
           <div style={textStyle}>
             <b>What We Store:</b> User profile, medical details (BP, cholesterol, diabetes, obesity), lifestyle factors (sleep, stress, smoking), risk scores, and timestamps.
-          </div>
-          <div style={textStyle}>
-            <b>Structured Option:</b> (If required) PostgreSQL for strict reliability and ACID consistency.
           </div>
 
           <div className="final-judge-statement" style={{ marginTop: '2rem', background: 'rgba(0,0,0,0.04)', borderRadius: 8, padding: '1.5rem' }}>
