@@ -1,5 +1,4 @@
 import { NavLink } from 'react-router-dom'
-import './Navbar.css'
 
 const navItems = [
   { label: 'Home', to: '/home' },
