@@ -1,5 +1,7 @@
 import { BarChart, TrendingUp, AlertCircle } from "lucide-react";
+import { useMemo } from "react";
 
+// Dashboard component without 'recharts'
 const Dashboard = () => {
   const metrics = [
     {
@@ -39,6 +41,17 @@ const Dashboard = () => {
     { date: "2025-11-17", time: "08:00 AM", bp: "125/85", hr: "75", status: "Elevated" },
   ];
 
+  // Prepare heart rate data for the chart (for placeholder, not visualized)
+  const heartRateData = useMemo(() => {
+    return recentReadings
+      .slice()
+      .reverse()
+      .map((r, idx) => ({
+        date: r.date.slice(5), // show MM-DD for brevity
+        heartRate: parseInt(r.hr, 10),
+      }));
+  }, [recentReadings]);
+
   return (
     <div className="dashboard-page">
       <div className="container">
@@ -76,14 +89,30 @@ const Dashboard = () => {
           ))}
         </div>
 
-        {/* Chart Placeholder */}
+        {/* Chart Section - Heart Rate Trend */}
         <div className="dashboard-grid">
           <div className="chart-card">
-            <h2 className="card-title">
-              <TrendingUp size={20} /> Heart Rate Trend
+            <h2 className="card-title" style={{ display: "flex", alignItems: "center" }}>
+              <TrendingUp size={20} style={{ marginRight: "0.5rem" }} /> Heart Rate Trend
             </h2>
-            <div className="chart-placeholder">
-              <p>Chart visualization coming soon</p>
+            <div
+              className="chart-placeholder"
+              style={{
+                background: "#e6e6e6",
+                border: "1px dashed #ccc",
+                borderRadius: "8px",
+                padding: "0",
+                marginTop: "1rem",
+                minHeight: "180px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center"
+              }}
+            >
+              {/* Chart visualization will appear here when `recharts` is installed */}
+              <p style={{ color: "#333", fontSize: "1rem" }}>
+                Chart visualization coming soon
+              </p>
             </div>
           </div>
 
