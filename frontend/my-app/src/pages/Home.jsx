@@ -1,24 +1,25 @@
 import { Link } from "react-router-dom";
 
 const Home = () => {
-  const features = [
-    {
-      title: "Health Monitoring",
-      description: "Track your heart health metrics in real-time with advanced monitoring systems."
-    },
-    {
-      title: "Risk Assessment",
-      description: "Get accurate predictions about heart disease risk using machine learning."
-    },
-    {
-      title: "Progress Tracking",
-      description: "Monitor your health improvements and track your wellness journey."
-    },
-    {
-      title: "Data Security",
-      description: "Your health data is protected with enterprise-grade security measures."
-    }
-  ];
+  // Custom styles for heading and topics
+  const headingStyle = {
+    fontSize: "3.3rem", // Increased size for main heading
+    fontWeight: "bold",
+    marginBottom: "1.2rem"
+  };
+
+  const topicStyle = {
+    fontSize: "2.1rem", // Slight increase for section topics
+    fontWeight: 600,
+    margin: "2.2rem 0 1.2rem 0",
+    textAlign: "center"
+  };
+
+  const textStyle = {
+    fontSize: "1.18rem",
+    marginBottom: "1.1rem",
+    textAlign: "left"
+  };
 
   return (
     <div className="home-page">
@@ -26,11 +27,11 @@ const Home = () => {
       <section className="hero-section">
         <div className="container">
           <div className="hero-content">
-            <h1 className="hero-title">
+            <h1 className="hero-title" style={headingStyle}>
               Your Heart Health,
               <span className="text-gradient"> Our Priority</span>
             </h1>
-            <p className="hero-description">
+            <p className="hero-description" style={{ fontSize: "1.3rem" }}>
               Advanced heart disease prediction and monitoring system powered by AI. 
               Take control of your cardiovascular health with data-driven insights.
             </p>
@@ -45,68 +46,68 @@ const Home = () => {
           </div>
         </div>
       </section>
-
-      {/* Features Section */}
-      <section className="features-section">
+      <section className="landing-brief">
         <div className="container">
-          <div className="section-header">
-            <h2 className="section-title">
-              Why Choose <span className="text-primary">Cardio360</span>
-            </h2>
-            <p className="section-description">
-              Comprehensive heart health management with cutting-edge technology
+          <div style={topicStyle}>Why Use Our ML Heart Risk System?</div>
+          <div style={textStyle}>
+            <b>Continuous Prediction:</b> Your heart risk changes every day—not just once at the doctor. Our system gives ongoing predictions as your data updates, offering real-time insights.
+          </div>
+          <div style={textStyle}>
+            <b>Early Screening Before Symptoms:</b> Most people visit hospitals only after problems occur. Our solution screens you early, alerting you to risks years before major tests are needed.
+          </div>
+          <div style={textStyle}>
+            <b>Cost-Effective:</b> Medical tests can be expensive and repetitive. Our AI tells you when tests are actually necessary, helping you avoid unnecessary spending.
+          </div>
+          <div style={textStyle}>
+            <b>Works with Partial Data:</b> Even if you don’t have complete medical information (like cholesterol or ECG), our model predicts risk with the data you provide.
+          </div>
+          <div style={textStyle}>
+            <b>Ideal for Rural & Remote Areas:</b> No cardiologist nearby? Our tool acts as a rapid pre-diagnosis system, bringing expert-level screening everywhere.
+          </div>
+          <div style={textStyle}>
+            <b>Doctor Support & Patient Prioritization:</b> Hospitals can instantly identify and prioritize high-risk patients, speeding up care before lab results arrive.
+          </div>
+          <div style={textStyle}>
+            <b>Long-Term Health Tracking:</b> Track trends in blood pressure, sleep, stress, and smoking. Our app visualizes your health patterns over time—something a single clinic visit can’t do.
+          </div>
+          <div style={textStyle}>
+            <b>Preventive Healthcare Focus:</b> We enable you to Predict → Prevent → Protect—catching problems before symptoms start.
+          </div>
+
+          <div style={topicStyle}>How Our ML System Works</div>
+          <div style={textStyle}>
+            <b>Multi-Model Hybrid:</b> Combines Logistic Regression and Random Forest for highly accurate results.
+          </div>
+          <div style={textStyle}>
+            <b>Smart Missing Data Handling:</b> Uses imputation and feature weighting—rare among typical hackathon projects.
+          </div>
+          <div style={textStyle}>
+            <b>Personalized Risk Scoring:</b> Adapts to diabetes, obesity, gender, age, and your lifestyle factors.
+          </div>
+          <div style={textStyle}>
+            <b>Explainable Results:</b> Dashboard shows key risk factors, feature importance, and condition severity, so you know <em>why</em> the model predicts a certain risk.
+          </div>
+          <div style={textStyle}>
+            <b>Trend-Based Analysis:</b> Monitors your health data over time, revealing patterns like rising blood pressure or increased stress for deeper insights.
+          </div>
+
+          <div style={topicStyle}>Our Data Approach</div>
+          <div style={textStyle}>
+            <b>Primary Database: MongoDB</b> — Flexible for messy, varied health records; perfectly fits our user health history storage; grows easily to support thousands of patients.
+          </div>
+          <div style={textStyle}>
+            <b>What We Store:</b> User profile, medical details (BP, cholesterol, diabetes, obesity), lifestyle factors (sleep, stress, smoking), risk scores, and timestamps.
+          </div>
+          <div style={textStyle}>
+            <b>Structured Option:</b> (If required) PostgreSQL for strict reliability and ACID consistency.
+          </div>
+
+          <div className="final-judge-statement" style={{ marginTop: '2rem', background: 'rgba(0,0,0,0.04)', borderRadius: 8, padding: '1.5rem' }}>
+            <strong>Hackathon-Ready Summary:</strong>
+            <p style={{ marginTop: '1rem', fontStyle: 'italic' }}>
+              “Our project is not a replacement for doctors; it is an early-warning system. We help users know when they actually need medical tests. We predict risk even with missing data, track long-term health patterns, and support doctors with fast prioritisation. Hospitals can use this for pre-screening thousands of patients. That’s the real complexity.”
             </p>
           </div>
-          <div className="features-grid">
-            {features.map((feature, index) => (
-              <div 
-                key={index}
-                className="feature-card"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <div className="feature-icon">
-                  <div className="icon-placeholder">❤️</div>
-                </div>
-                <h3 className="feature-title">{feature.title}</h3>
-                <p className="feature-description">{feature.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="stats-section">
-        <div className="container">
-          <div className="stats-grid">
-            <div className="stat-item">
-              <div className="stat-value">95%</div>
-              <p className="stat-label">Prediction Accuracy</p>
-            </div>
-            <div className="stat-item">
-              <div className="stat-value">10k+</div>
-              <p className="stat-label">Patients Monitored</p>
-            </div>
-            <div className="stat-item">
-              <div className="stat-value">24/7</div>
-              <p className="stat-label">Health Support</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="cta-section">
-        <div className="container">
-          <h2 className="cta-title">
-            Ready to Take Control of Your Heart Health?
-          </h2>
-          <p className="cta-description">
-            Join thousands of users who are monitoring their cardiovascular health with Cardio360
-          </p>
-          <Link to="/predict" className="btn btn-primary btn-large">
-            Get Started Now
-          </Link>
         </div>
       </section>
     </div>

@@ -11,7 +11,14 @@ const navItems = [
 function Navbar() {
   return (
     <nav className="global-navbar">
-      <div className="brand">Cardio360</div>
+      <div
+        className="brand"
+        style={{
+          fontWeight: '700',
+        }}
+      >
+        Cardio360
+      </div>
       <div className="nav-links">
         {navItems.map((item) => (
           <NavLink
